@@ -39,6 +39,7 @@ namespace QuanPCChuot.UI.Controls
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
+            this.bwLogin = new System.ComponentModel.BackgroundWorker();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -124,7 +125,9 @@ namespace QuanPCChuot.UI.Controls
             this.progressBar1.Location = new System.Drawing.Point(22, 12);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(342, 13);
+            this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
             this.progressBar1.TabIndex = 3;
+            this.progressBar1.Visible = false;
             // 
             // panel2
             // 
@@ -145,6 +148,11 @@ namespace QuanPCChuot.UI.Controls
             this.label3.Size = new System.Drawing.Size(260, 15);
             this.label3.TabIndex = 0;
             this.label3.Text = "Type your account and click \'Login\' to continue.";
+            // 
+            // bwLogin
+            // 
+            this.bwLogin.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bwLogin_DoWork);
+            this.bwLogin.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bwLogin_RunWorkerCompleted);
             // 
             // Login
             // 
@@ -175,5 +183,6 @@ namespace QuanPCChuot.UI.Controls
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.ComponentModel.BackgroundWorker bwLogin;
     }
 }

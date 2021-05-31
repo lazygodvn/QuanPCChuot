@@ -15,6 +15,7 @@ namespace QuanPCChuot.UI
         public MainForm()
         {
             InitializeComponent();
+            accountManager1.LoadData();
         }
     }
 }

@@ -38,9 +38,7 @@ namespace QuanPCChuot.UI.Controls
             this.dtpCreatedDate = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
             this.cbIsAdmin = new System.Windows.Forms.CheckBox();
-            this.tbReason = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.tbTelephone = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.tbName = new System.Windows.Forms.TextBox();
@@ -57,12 +55,18 @@ namespace QuanPCChuot.UI.Controls
             // 
             // dgvAcc
             // 
+            this.dgvAcc.AllowUserToAddRows = false;
+            this.dgvAcc.AllowUserToDeleteRows = false;
+            this.dgvAcc.AllowUserToResizeColumns = false;
             this.dgvAcc.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvAcc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAcc.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvAcc.Location = new System.Drawing.Point(13, 33);
             this.dgvAcc.Name = "dgvAcc";
+            this.dgvAcc.RowHeadersVisible = false;
+            this.dgvAcc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvAcc.Size = new System.Drawing.Size(532, 518);
             this.dgvAcc.TabIndex = 0;
             // 
@@ -86,9 +90,7 @@ namespace QuanPCChuot.UI.Controls
             this.panel1.Controls.Add(this.dtpCreatedDate);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.cbIsAdmin);
-            this.panel1.Controls.Add(this.tbReason);
             this.panel1.Controls.Add(this.label9);
-            this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.tbTelephone);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.tbName);
@@ -107,7 +109,7 @@ namespace QuanPCChuot.UI.Controls
             // btnDel
             // 
             this.btnDel.Enabled = false;
-            this.btnDel.Location = new System.Drawing.Point(23, 308);
+            this.btnDel.Location = new System.Drawing.Point(23, 279);
             this.btnDel.Name = "btnDel";
             this.btnDel.Size = new System.Drawing.Size(242, 28);
             this.btnDel.TabIndex = 4;
@@ -116,7 +118,7 @@ namespace QuanPCChuot.UI.Controls
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(23, 372);
+            this.btnAdd.Location = new System.Drawing.Point(23, 343);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(242, 28);
             this.btnAdd.TabIndex = 4;
@@ -126,7 +128,7 @@ namespace QuanPCChuot.UI.Controls
             // btnSave
             // 
             this.btnSave.Enabled = false;
-            this.btnSave.Location = new System.Drawing.Point(23, 274);
+            this.btnSave.Location = new System.Drawing.Point(23, 245);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(242, 28);
             this.btnSave.TabIndex = 4;
@@ -140,7 +142,7 @@ namespace QuanPCChuot.UI.Controls
             this.dtpCreatedDate.CustomFormat = "dd/MM/yyyy HH:mm:ss";
             this.dtpCreatedDate.Enabled = false;
             this.dtpCreatedDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpCreatedDate.Location = new System.Drawing.Point(101, 230);
+            this.dtpCreatedDate.Location = new System.Drawing.Point(101, 201);
             this.dtpCreatedDate.Name = "dtpCreatedDate";
             this.dtpCreatedDate.Size = new System.Drawing.Size(164, 23);
             this.dtpCreatedDate.TabIndex = 3;
@@ -166,33 +168,14 @@ namespace QuanPCChuot.UI.Controls
             this.cbIsAdmin.Text = "Is Administrator?";
             this.cbIsAdmin.UseVisualStyleBackColor = true;
             // 
-            // tbReason
-            // 
-            this.tbReason.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbReason.Location = new System.Drawing.Point(101, 201);
-            this.tbReason.MaxLength = 20;
-            this.tbReason.Name = "tbReason";
-            this.tbReason.Size = new System.Drawing.Size(164, 23);
-            this.tbReason.TabIndex = 1;
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(20, 236);
+            this.label9.Location = new System.Drawing.Point(20, 207);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(74, 15);
             this.label9.TabIndex = 0;
             this.label9.Text = "Created date";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(20, 204);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(45, 15);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "Reason";
             // 
             // tbTelephone
             // 
@@ -324,8 +307,6 @@ namespace QuanPCChuot.UI.Controls
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.CheckBox cbIsAdmin;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox tbReason;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DateTimePicker dtpCreatedDate;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btnDel;

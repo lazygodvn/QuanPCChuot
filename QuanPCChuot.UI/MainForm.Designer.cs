@@ -29,23 +29,23 @@ namespace QuanPCChuot.UI
         /// </summary>
         private void InitializeComponent()
         {
-            this.login1 = new QuanPCChuot.UI.Controls.Login();
+            this.accountManager1 = new QuanPCChuot.UI.Controls.AccountManager();
             this.SuspendLayout();
             // 
-            // login1
+            // accountManager1
             // 
-            this.login1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.login1.Location = new System.Drawing.Point(269, 130);
-            this.login1.Name = "login1";
-            this.login1.Size = new System.Drawing.Size(393, 214);
-            this.login1.TabIndex = 0;
+            this.accountManager1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.accountManager1.Location = new System.Drawing.Point(12, 12);
+            this.accountManager1.Name = "accountManager1";
+            this.accountManager1.Size = new System.Drawing.Size(909, 495);
+            this.accountManager1.TabIndex = 0;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(933, 519);
-            this.Controls.Add(this.login1);
+            this.Controls.Add(this.accountManager1);
             this.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.Name = "MainForm";
             this.Text = "Form1";
@@ -55,7 +55,7 @@ namespace QuanPCChuot.UI
 
         #endregion
 
-        private Controls.Login login1;
+        private Controls.AccountManager accountManager1;
     }
 }
 
