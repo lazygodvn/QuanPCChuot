@@ -188,7 +188,7 @@ namespace QuanPCChuot.UI.Controls
                 if (count <= 0)
                 {
                     MessageBox.Show(
-                        "Số lượng đã nhập phải lớn hơn 0!",
+                        "Item amount you entered must be greater than 0!",
                         "Error",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Warning
@@ -198,7 +198,7 @@ namespace QuanPCChuot.UI.Controls
                 if (count > Convert.ToInt32(textBox1.Text))
                 {
                     MessageBox.Show(
-                        "Số lượng đã nhập không được quá số lượng hàng trong kho!",
+                        "The number of items you entered cannot exceed the number of items in stock!",
                         "Error",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Warning
@@ -309,8 +309,8 @@ namespace QuanPCChuot.UI.Controls
                 return;
 
             DialogResult dg = MessageBox.Show(
-                "Bạn có muốn hủy thanh toán hóa đơn này không?\nNhững thứ bạn đã thêm vào sẽ trả về kho đồ.",
-                "Hủy hóa đơn này?",
+                "Do you want to cancel this bill?\nEverything you have added in this bill will return to the inventory.",
+                "Cancel this bill?",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question
                 );
@@ -330,8 +330,8 @@ namespace QuanPCChuot.UI.Controls
                 return;
 
             DialogResult dg = MessageBox.Show(
-                "Bạn có muốn thanh toán hóa đơn này không?",
-                "Thanh toán hóa đơn này?",
+                "Do you want to mark this bill as purchased?",
+                "Mark this bill as purchased?",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question
                 );
