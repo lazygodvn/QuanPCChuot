@@ -56,11 +56,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\AccountChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\AccountChangePassword.Designer.cs">
+      <DependentUpon>AccountChangePassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\AccountInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\AccountInfo.Designer.cs">
+      <DependentUpon>AccountInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\AccountManager.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Controls\AccountManager.Designer.cs">
       <DependentUpon>AccountManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\BillInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\BillInfo.Designer.cs">
+      <DependentUpon>BillInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\BillMainForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\BillMainForm.Designer.cs">
+      <DependentUpon>BillMainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\BillManager.cs">
       <SubType>UserControl</SubType>
@@ -68,11 +92,23 @@
     <Compile Include="Controls\BillManager.Designer.cs">
       <DependentUpon>BillManager.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\GroupInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\GroupInfo.Designer.cs">
+      <DependentUpon>GroupInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\GroupManager.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Controls\GroupManager.Designer.cs">
       <DependentUpon>GroupManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\InventoryInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\InventoryInfo.Designer.cs">
+      <DependentUpon>InventoryInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\InventoryManager.cs">
       <SubType>UserControl</SubType>
@@ -85,6 +121,12 @@
     </Compile>
     <Compile Include="Controls\LogManager.Designer.cs">
       <DependentUpon>LogManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\LogViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\LogViewer.Designer.cs">
+      <DependentUpon>LogViewer.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -100,20 +142,41 @@
     <Compile Include="Controls\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Controls\AccountChangePassword.resx">
+      <DependentUpon>AccountChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\AccountInfo.resx">
+      <DependentUpon>AccountInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\AccountManager.resx">
       <DependentUpon>AccountManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\BillInfo.resx">
+      <DependentUpon>BillInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\BillMainForm.resx">
+      <DependentUpon>BillMainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\BillManager.resx">
       <DependentUpon>BillManager.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\GroupInfo.resx">
+      <DependentUpon>GroupInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\GroupManager.resx">
       <DependentUpon>GroupManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\InventoryInfo.resx">
+      <DependentUpon>InventoryInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\InventoryManager.resx">
       <DependentUpon>InventoryManager.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\LogManager.resx">
       <DependentUpon>LogManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\LogViewer.resx">
+      <DependentUpon>LogViewer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

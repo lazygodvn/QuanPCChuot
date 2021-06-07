@@ -31,6 +31,7 @@ namespace QuanPCChuot.UI.Controls
         {
             this.label1 = new System.Windows.Forms.Label();
             this.dgvLog = new System.Windows.Forms.DataGridView();
+            this.btnView = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLog)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,19 +47,39 @@ namespace QuanPCChuot.UI.Controls
             // 
             // dgvLog
             // 
+            this.dgvLog.AllowUserToAddRows = false;
+            this.dgvLog.AllowUserToDeleteRows = false;
+            this.dgvLog.AllowUserToResizeRows = false;
             this.dgvLog.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvLog.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvLog.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvLog.Location = new System.Drawing.Point(13, 33);
             this.dgvLog.Name = "dgvLog";
-            this.dgvLog.Size = new System.Drawing.Size(828, 518);
-            this.dgvLog.TabIndex = 8;
+            this.dgvLog.ReadOnly = true;
+            this.dgvLog.RowHeadersVisible = false;
+            this.dgvLog.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvLog.Size = new System.Drawing.Size(825, 475);
+            this.dgvLog.TabIndex = 0;
+            this.dgvLog.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvLog_CellMouseDoubleClick);
+            // 
+            // btnView
+            // 
+            this.btnView.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnView.Location = new System.Drawing.Point(739, 514);
+            this.btnView.Name = "btnView";
+            this.btnView.Size = new System.Drawing.Size(99, 34);
+            this.btnView.TabIndex = 1;
+            this.btnView.Text = "View";
+            this.btnView.UseVisualStyleBackColor = true;
+            this.btnView.Click += new System.EventHandler(this.btnView_Click);
             // 
             // LogManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnView);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvLog);
             this.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -74,5 +95,6 @@ namespace QuanPCChuot.UI.Controls
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvLog;
+        private System.Windows.Forms.Button btnView;
     }
 }

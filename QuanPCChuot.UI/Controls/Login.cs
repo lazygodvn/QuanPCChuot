@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.Windows.Forms;
 
 namespace QuanPCChuot.UI.Controls
@@ -8,6 +9,11 @@ namespace QuanPCChuot.UI.Controls
         public Login()
         {
             InitializeComponent();
+        }
+
+        public void ClearPassword()
+        {
+            tbPassword.Clear();
         }
 
         private void btnLogin_Click(object sender, System.EventArgs e)
@@ -26,6 +32,8 @@ namespace QuanPCChuot.UI.Controls
             }
         }
 
+        public event EventHandler<LoginEventArgs> LoginReturn;
+
         private void bwLogin_DoWork(object sender, DoWorkEventArgs e)
         {
             e.Result = BUS.Account.Login(tbUsername.Text, tbPassword.Text);
@@ -34,21 +42,17 @@ namespace QuanPCChuot.UI.Controls
         private void bwLogin_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             BUS.Account.LoginState result = (BUS.Account.LoginState)e.Result;
-            switch (result)
-            {
-                case BUS.Account.LoginState.CorrectPassword:
-                    // TODO: Correct Password
-                    break;
-                case BUS.Account.LoginState.IncorrentPassword:
-                    // TODO: Incorrect Password
-                    break;
-                case BUS.Account.LoginState.NotFound:
-                    // TODO: Not found
-                    break;
-                case BUS.Account.LoginState.Unknown:
-                    // TODO: Unknown
-                    break;
-            }
+            LoginReturn(this, new LoginEventArgs() { State = result });
+
+            progressBar1.Visible = false;
+            label3.Text = "Type your account and click 'Login' to continue.";
         }
+    }
+
+    public class LoginEventArgs : EventArgs
+    {
+        public LoginEventArgs() { }
+
+        public BUS.Account.LoginState State { get; set; } = BUS.Account.LoginState.Unknown;
     }
 }

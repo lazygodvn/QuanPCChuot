@@ -9,6 +9,12 @@ namespace QuanPCChuot.DTO
     [Table("Inventory")]
     public partial class Inventory
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Inventory()
+        {
+            
+        }
+
         public long ID { get; set; }
 
         [Required]
