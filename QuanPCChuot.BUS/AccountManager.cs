@@ -98,6 +98,16 @@ namespace QuanPCChuot.BUS
                     var data = db.Accounts.Where(p => p.ID == id).FirstOrDefault();
                     if (data == null)
                         list.Add(id);
+                    else if (data.ID == BUS.Account.LoggedInAccount.ID)
+                    {
+                        MessageBox.Show(
+                            "You can't delete your account when you logged in.\nTo do this, ask another administrator to delete your account.",
+                            "Warnring",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Warning
+                            );
+                        list.Add(id);
+                    }
                     else
                     {
                         db.Accounts.Remove(data);
