@@ -44,5 +44,18 @@ namespace QuanPCChuot.UI.Controls
         {
             btnView_Click(new object(), new EventArgs());
         }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            dtpDateFrom.Value = DateTime.Today;
+            dtpDateTo.Value = DateTime.Today;
+
+            LoadData();
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            dgvLog.DataSource = BUS.LogManager.GetLogFromDate(dtpDateFrom.Value, dtpDateTo.Value);
+        }
     }
 }

@@ -47,6 +47,15 @@ namespace QuanPCChuot.UI.Controls
             progressBar1.Visible = false;
             label3.Text = "Type your account and click 'Login' to continue.";
         }
+
+        private void TextBoxLogin_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                btnLogin_Click(btnLogin, new EventArgs());
+            }
+        }
     }
 
     public class LoginEventArgs : EventArgs

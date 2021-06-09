@@ -16,7 +16,8 @@ namespace QuanPCChuot.UI.Controls
         {
             initialized = false;
 
-            dgvGroup.DataSource = BUS.GroupManager.GetAllGroups();
+            string searchText = tbSearch.TextLength > 0 ? tbSearch.Text : null;
+            dgvGroup.DataSource = BUS.GroupManager.GetAllGroups(searchText);
 
             initialized = true;
         }
@@ -112,6 +113,20 @@ namespace QuanPCChuot.UI.Controls
             // Open Group Info with create mode
             if (groupForm.DialogResult == DialogResult.OK)
                 LoadData();
+        }
+
+        private void tbSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                LoadData();
+            }
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            LoadData();
         }
     }
 }

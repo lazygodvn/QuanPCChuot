@@ -16,7 +16,8 @@ namespace QuanPCChuot.UI.Controls
         {
             initialized = false;
 
-            dgvInventory.DataSource = BUS.InventoryManager.GetAllInventories();
+            string searchText = tbSearch.TextLength > 0 ? tbSearch.Text : null;
+            dgvInventory.DataSource = BUS.InventoryManager.GetAllInventories(searchText);
 
             initialized = true;
         }
@@ -123,6 +124,20 @@ namespace QuanPCChuot.UI.Controls
 
             if (item.DialogResult == DialogResult.OK)
                 LoadData();
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            LoadData();
+        }
+
+        private void tbSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                LoadData();
+            }
         }
     }
 }

@@ -73,5 +73,18 @@ namespace QuanPCChuot.UI.Controls
             BillInfo bill = new BillInfo(BUS.BillManager.GetBillByID(Convert.ToInt64(dgvBill.SelectedRows[0].Cells[0].Value)));
             bill.ShowDialog();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            dtpDateFrom.Value = DateTime.Today;
+            dtpDateTo.Value = DateTime.Today;
+
+            LoadData();
+        }
+
+        private void dtpDateTo_ValueChanged(object sender, EventArgs e)
+        {
+            dgvBill.DataSource = BUS.BillManager.GetBillsFromDate(dtpDateFrom.Value, dtpDateTo.Value);
+        }
     }
 }

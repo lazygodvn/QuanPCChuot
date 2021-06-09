@@ -44,6 +44,9 @@ namespace QuanPCChuot.UI.Controls
             this.dgvGroup = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tbCreatedDate = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.tbSearch = new System.Windows.Forms.TextBox();
+            this.btnSearch = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGroup)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -180,12 +183,12 @@ namespace QuanPCChuot.UI.Controls
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvGroup.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvGroup.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvGroup.Location = new System.Drawing.Point(13, 33);
+            this.dgvGroup.Location = new System.Drawing.Point(13, 62);
             this.dgvGroup.Name = "dgvGroup";
             this.dgvGroup.ReadOnly = true;
             this.dgvGroup.RowHeadersVisible = false;
             this.dgvGroup.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvGroup.Size = new System.Drawing.Size(532, 518);
+            this.dgvGroup.Size = new System.Drawing.Size(532, 489);
             this.dgvGroup.TabIndex = 0;
             this.dgvGroup.SelectionChanged += new System.EventHandler(this.dgvGroup_SelectionChanged);
             // 
@@ -221,10 +224,43 @@ namespace QuanPCChuot.UI.Controls
             this.tbCreatedDate.Size = new System.Drawing.Size(164, 23);
             this.tbCreatedDate.TabIndex = 4;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(10, 36);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(93, 15);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "Search by Name";
+            // 
+            // tbSearch
+            // 
+            this.tbSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbSearch.Location = new System.Drawing.Point(109, 32);
+            this.tbSearch.Name = "tbSearch";
+            this.tbSearch.Size = new System.Drawing.Size(355, 23);
+            this.tbSearch.TabIndex = 7;
+            this.tbSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbSearch_KeyDown);
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSearch.Location = new System.Drawing.Point(470, 32);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnSearch.TabIndex = 8;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
             // GroupManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnSearch);
+            this.Controls.Add(this.tbSearch);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvGroup);
             this.Controls.Add(this.panel1);
@@ -256,5 +292,8 @@ namespace QuanPCChuot.UI.Controls
         private System.Windows.Forms.DataGridView dgvGroup;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox tbCreatedDate;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox tbSearch;
+        private System.Windows.Forms.Button btnSearch;
     }
 }

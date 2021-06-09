@@ -12,7 +12,7 @@ namespace QuanPCChuot.BUS
 {
     public static class GroupManager
     {
-        public static DataTable GetAllGroups()
+        public static DataTable GetAllGroups(string name = null)
         {
             using (var db = new Model1())
             {
@@ -23,7 +23,9 @@ namespace QuanPCChuot.BUS
                 dt.Columns.Add("Created Date", typeof(DateTime));
 
                 db.ItemGroups.Load();
-                var d = db.ItemGroups.Local.ToBindingList();
+                var d = db.ItemGroups.Local.ToList();
+                if (name != null)
+                    d = d.Where(p => p.Name.ToLower().Contains(name.ToLower())).ToList();
 
                 foreach (var dr in d)
                 {

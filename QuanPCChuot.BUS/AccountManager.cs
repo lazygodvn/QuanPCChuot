@@ -10,7 +10,7 @@ namespace QuanPCChuot.BUS
 {
     public static partial class AccountManager
     {
-        public static DataTable GetAllAccounts()
+        public static DataTable GetAllAccounts(string name = null)
         {
             using (var db = new Model1())
             {
@@ -23,7 +23,9 @@ namespace QuanPCChuot.BUS
                 dt.Columns.Add("Created Date", typeof(DateTime));
 
                 db.Accounts.Load();
-                var d = db.Accounts.Local.ToBindingList();
+                var d = db.Accounts.Local.ToList();
+                if (name != null)
+                    d = d.Where(p => p.Username.ToLower().Contains(name.ToLower())).ToList();
 
                 foreach (var dr in d)
                 {

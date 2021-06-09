@@ -49,6 +49,9 @@ namespace QuanPCChuot.UI.Controls
             this.label3 = new System.Windows.Forms.Label();
             this.tbID = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.tbSearch = new System.Windows.Forms.TextBox();
+            this.btnSearch = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAcc)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -63,11 +66,11 @@ namespace QuanPCChuot.UI.Controls
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvAcc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAcc.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvAcc.Location = new System.Drawing.Point(13, 33);
+            this.dgvAcc.Location = new System.Drawing.Point(13, 64);
             this.dgvAcc.Name = "dgvAcc";
             this.dgvAcc.RowHeadersVisible = false;
             this.dgvAcc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvAcc.Size = new System.Drawing.Size(532, 518);
+            this.dgvAcc.Size = new System.Drawing.Size(532, 487);
             this.dgvAcc.TabIndex = 0;
             this.dgvAcc.SelectionChanged += new System.EventHandler(this.dgvAcc_SelectionChanged);
             // 
@@ -281,10 +284,43 @@ namespace QuanPCChuot.UI.Controls
             this.label2.TabIndex = 0;
             this.label2.Text = "ID";
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(12, 36);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(114, 15);
+            this.label8.TabIndex = 3;
+            this.label8.Text = "Search by Username";
+            // 
+            // tbSearch
+            // 
+            this.tbSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbSearch.Location = new System.Drawing.Point(132, 33);
+            this.tbSearch.Name = "tbSearch";
+            this.tbSearch.Size = new System.Drawing.Size(320, 23);
+            this.tbSearch.TabIndex = 4;
+            this.tbSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbSearch_KeyDown);
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSearch.Location = new System.Drawing.Point(458, 33);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(87, 23);
+            this.btnSearch.TabIndex = 5;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
             // AccountManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnSearch);
+            this.Controls.Add(this.tbSearch);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvAcc);
@@ -321,5 +357,8 @@ namespace QuanPCChuot.UI.Controls
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox tbCreatedDate;
         private System.Windows.Forms.TextBox tbIsAdmin;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox tbSearch;
+        private System.Windows.Forms.Button btnSearch;
     }
 }

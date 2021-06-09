@@ -53,6 +53,11 @@ namespace QuanPCChuot.UI.Controls
             this.label3 = new System.Windows.Forms.Label();
             this.tbID = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.dtpDateFrom = new System.Windows.Forms.DateTimePicker();
+            this.dtpDateTo = new System.Windows.Forms.DateTimePicker();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBill)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -107,13 +112,13 @@ namespace QuanPCChuot.UI.Controls
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvBill.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvBill.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvBill.Location = new System.Drawing.Point(13, 33);
+            this.dgvBill.Location = new System.Drawing.Point(16, 64);
             this.dgvBill.MultiSelect = false;
             this.dgvBill.Name = "dgvBill";
             this.dgvBill.ReadOnly = true;
             this.dgvBill.RowHeadersVisible = false;
             this.dgvBill.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvBill.Size = new System.Drawing.Size(496, 518);
+            this.dgvBill.Size = new System.Drawing.Size(496, 487);
             this.dgvBill.TabIndex = 9;
             this.dgvBill.SelectionChanged += new System.EventHandler(this.dgvBill_SelectionChanged);
             // 
@@ -338,11 +343,64 @@ namespace QuanPCChuot.UI.Controls
             this.label2.TabIndex = 0;
             this.label2.Text = "ID";
             // 
+            // dtpDateFrom
+            // 
+            this.dtpDateFrom.CustomFormat = "dd/MM/yyyy";
+            this.dtpDateFrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpDateFrom.Location = new System.Drawing.Point(98, 33);
+            this.dtpDateFrom.Name = "dtpDateFrom";
+            this.dtpDateFrom.Size = new System.Drawing.Size(113, 23);
+            this.dtpDateFrom.TabIndex = 5;
+            this.dtpDateFrom.ValueChanged += new System.EventHandler(this.dtpDateTo_ValueChanged);
+            // 
+            // dtpDateTo
+            // 
+            this.dtpDateTo.CustomFormat = "dd/MM/yyyy";
+            this.dtpDateTo.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpDateTo.Location = new System.Drawing.Point(241, 33);
+            this.dtpDateTo.Name = "dtpDateTo";
+            this.dtpDateTo.Size = new System.Drawing.Size(113, 23);
+            this.dtpDateTo.TabIndex = 5;
+            this.dtpDateTo.ValueChanged += new System.EventHandler(this.dtpDateTo_ValueChanged);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(13, 37);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(74, 15);
+            this.label12.TabIndex = 12;
+            this.label12.Text = "Display from";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(217, 37);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(18, 15);
+            this.label13.TabIndex = 12;
+            this.label13.Text = "to";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(381, 33);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(128, 23);
+            this.button1.TabIndex = 13;
+            this.button1.Text = "Get All Bills";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // BillManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.dtpDateTo);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.dtpDateFrom);
             this.Controls.Add(this.dgvBill);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -381,5 +439,10 @@ namespace QuanPCChuot.UI.Controls
         private System.Windows.Forms.TextBox tbDiscount;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnView;
+        private System.Windows.Forms.DateTimePicker dtpDateFrom;
+        private System.Windows.Forms.DateTimePicker dtpDateTo;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Button button1;
     }
 }

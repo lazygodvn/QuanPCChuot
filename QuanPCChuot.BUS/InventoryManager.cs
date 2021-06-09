@@ -10,7 +10,7 @@ namespace QuanPCChuot.BUS
 {
     public static class InventoryManager
     {
-        public static DataTable GetAllInventories()
+        public static DataTable GetAllInventories(string name = null)
         {
             using (var db = new Model1())
             {
@@ -28,7 +28,9 @@ namespace QuanPCChuot.BUS
                 dt.Columns.Add("Last Add Date", typeof(string));
 
                 db.Inventories.Load();
-                var d = db.Inventories.Local.ToBindingList();
+                var d = db.Inventories.Local.ToList();
+                if (name != null)
+                    d = d.Where(p => p.Name.ToLower().Contains(name.ToLower())).ToList();
 
                 foreach (var dr in d)
                 {

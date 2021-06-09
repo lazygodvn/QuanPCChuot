@@ -17,7 +17,8 @@ namespace QuanPCChuot.UI.Controls
         {
             initialized = false;
 
-            dgvAcc.DataSource = BUS.AccountManager.GetAllAccounts();
+            string searchText = tbSearch.TextLength > 0 ? tbSearch.Text : null;
+            dgvAcc.DataSource = BUS.AccountManager.GetAllAccounts(searchText);
 
             initialized = true;
         }
@@ -139,6 +140,20 @@ namespace QuanPCChuot.UI.Controls
 
             if (accChangePass.DialogResult == DialogResult.OK)
                 LoadData();
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            LoadData();
+        }
+
+        private void tbSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                LoadData();
+            }
         }
     }
 }

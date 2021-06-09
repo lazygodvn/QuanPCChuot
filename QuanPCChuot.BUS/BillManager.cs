@@ -16,6 +16,11 @@ namespace QuanPCChuot.BUS
     {
         public static DataTable GetAllBills()
         {
+            return GetBillsFromDate(new DateTime(), DateTime.Now);
+        }
+
+        public static DataTable GetBillsFromDate(Nullable<DateTime> dateFrom = null, Nullable<DateTime> dateTo = null)
+        {
             using (var db = new Model1())
             {
                 DataTable dt = new DataTable();
@@ -30,7 +35,13 @@ namespace QuanPCChuot.BUS
                 dt.Columns.Add("Created Date", typeof(DateTime));
 
                 db.Bills.Load();
-                var d = db.Bills.Local.ToBindingList();
+                var d = db.Bills.Local.ToList();
+                if (dateFrom != null && dateTo != null)
+                {
+                    DateTime dateFrom1 = new DateTime(dateFrom.Value.Year, dateFrom.Value.Month, dateFrom.Value.Day, 0, 0, 0);
+                    DateTime dateTo1 = new DateTime(dateTo.Value.Year, dateTo.Value.Month, dateTo.Value.Day, 23, 59, 59);
+                    d = d.Where(p => p.CreatedDate >= dateFrom1).Where(p => p.CreatedDate <= dateTo1).ToList();
+                }
 
                 foreach (var item in d)
                 {
@@ -214,8 +225,6 @@ namespace QuanPCChuot.BUS
                 // Save changes to bill
                 data.ServiceIDs = JsonConvert.SerializeObject(list);
                 db.SaveChanges();
-
-                BUS.LogManager.AddLog(Account.LoggedInAccount.ID, String.Format("Made changes to a bill with ID: {0}", data.ID));
             }
         }
 

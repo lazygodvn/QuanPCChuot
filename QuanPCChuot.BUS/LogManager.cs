@@ -15,6 +15,11 @@ namespace QuanPCChuot.BUS
     {
         public static DataTable GetAllLogs()
         {
+            return GetLogFromDate();
+        }
+
+        public static DataTable GetLogFromDate(Nullable<DateTime> dateFrom = null, Nullable<DateTime> dateTo = null)
+        {
             using (var db = new Model1())
             {
                 DataTable dt = new DataTable();
@@ -24,7 +29,13 @@ namespace QuanPCChuot.BUS
                 dt.Columns.Add("Created date", typeof(DateTime));
 
                 db.Logs.Load();
-                var d = db.Logs.Local.ToBindingList();
+                var d = db.Logs.Local.ToList();
+                if (dateFrom != null && dateTo != null)
+                {
+                    DateTime dateFrom1 = new DateTime(dateFrom.Value.Year, dateFrom.Value.Month, dateFrom.Value.Day, 0, 0, 0);
+                    DateTime dateTo1 = new DateTime(dateTo.Value.Year, dateTo.Value.Month, dateTo.Value.Day, 23, 59, 59);
+                    d = d.Where(p => p.CreatedDate >= dateFrom1).Where(p => p.CreatedDate <= dateTo1).ToList();
+                }
 
                 foreach (var dr in d)
                 {
