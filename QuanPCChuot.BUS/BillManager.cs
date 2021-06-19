@@ -124,8 +124,7 @@ namespace QuanPCChuot.BUS
             using (var db = new Model1())
             {
                 DTO.Bill bill = new DTO.Bill();
-                // TODO: Change logged in staff here!
-                bill.StaffID = 1;
+                bill.StaffID = BUS.Account.LoggedInAccount.ID;
                 bill.CreatedDate = DateTime.Now;
                 bill.ServiceIDs = "[]";
                 db.Bills.Add(bill);
