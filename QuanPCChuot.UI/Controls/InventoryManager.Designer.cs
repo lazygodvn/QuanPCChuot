@@ -31,8 +31,7 @@ namespace QuanPCChuot.UI.Controls
         {
             this.btnDel = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.dtpCreatedDate = new System.Windows.Forms.DateTimePicker();
+            this.btnEdit = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.tbManufacturer = new System.Windows.Forms.TextBox();
@@ -44,8 +43,9 @@ namespace QuanPCChuot.UI.Controls
             this.label1 = new System.Windows.Forms.Label();
             this.dgvInventory = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.cbGroup = new System.Windows.Forms.ComboBox();
+            this.tbCreatedDate = new System.Windows.Forms.TextBox();
             this.tbUnit = new System.Windows.Forms.TextBox();
+            this.tbGroupName = new System.Windows.Forms.TextBox();
             this.tbWarranty = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
@@ -58,6 +58,9 @@ namespace QuanPCChuot.UI.Controls
             this.label6 = new System.Windows.Forms.Label();
             this.tbCount = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.tbSearch = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInventory)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -68,47 +71,37 @@ namespace QuanPCChuot.UI.Controls
             this.btnDel.Location = new System.Drawing.Point(23, 399);
             this.btnDel.Name = "btnDel";
             this.btnDel.Size = new System.Drawing.Size(242, 28);
-            this.btnDel.TabIndex = 4;
+            this.btnDel.TabIndex = 13;
             this.btnDel.Text = "Delete";
             this.btnDel.UseVisualStyleBackColor = true;
+            this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
             // 
             // btnAdd
             // 
             this.btnAdd.Location = new System.Drawing.Point(23, 463);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(242, 28);
-            this.btnAdd.TabIndex = 4;
+            this.btnAdd.TabIndex = 14;
             this.btnAdd.Text = "Add new Item";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // btnSave
+            // btnEdit
             // 
-            this.btnSave.Enabled = false;
-            this.btnSave.Location = new System.Drawing.Point(23, 365);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(242, 28);
-            this.btnSave.TabIndex = 4;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
-            // 
-            // dtpCreatedDate
-            // 
-            this.dtpCreatedDate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtpCreatedDate.CustomFormat = "dd/MM/yyyy HH:mm:ss";
-            this.dtpCreatedDate.Enabled = false;
-            this.dtpCreatedDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpCreatedDate.Location = new System.Drawing.Point(101, 321);
-            this.dtpCreatedDate.Name = "dtpCreatedDate";
-            this.dtpCreatedDate.Size = new System.Drawing.Size(164, 23);
-            this.dtpCreatedDate.TabIndex = 3;
+            this.btnEdit.Enabled = false;
+            this.btnEdit.Location = new System.Drawing.Point(23, 365);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(242, 28);
+            this.btnEdit.TabIndex = 12;
+            this.btnEdit.Text = "Edit";
+            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Enabled = false;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.label7.Location = new System.Drawing.Point(3, 3);
+            this.label7.Location = new System.Drawing.Point(4, 3);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(127, 21);
             this.label7.TabIndex = 1;
@@ -117,7 +110,7 @@ namespace QuanPCChuot.UI.Controls
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(20, 327);
+            this.label9.Location = new System.Drawing.Point(20, 324);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(74, 15);
             this.label9.TabIndex = 0;
@@ -127,11 +120,13 @@ namespace QuanPCChuot.UI.Controls
             // 
             this.tbManufacturer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbManufacturer.BackColor = System.Drawing.SystemColors.Window;
+            this.tbManufacturer.HideSelection = false;
             this.tbManufacturer.Location = new System.Drawing.Point(101, 89);
-            this.tbManufacturer.MaxLength = 32;
             this.tbManufacturer.Name = "tbManufacturer";
+            this.tbManufacturer.ReadOnly = true;
             this.tbManufacturer.Size = new System.Drawing.Size(164, 23);
-            this.tbManufacturer.TabIndex = 1;
+            this.tbManufacturer.TabIndex = 3;
             // 
             // label4
             // 
@@ -146,11 +141,14 @@ namespace QuanPCChuot.UI.Controls
             // 
             this.tbName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbName.BackColor = System.Drawing.SystemColors.Window;
+            this.tbName.HideSelection = false;
             this.tbName.Location = new System.Drawing.Point(101, 60);
             this.tbName.MaxLength = 32;
             this.tbName.Name = "tbName";
+            this.tbName.ReadOnly = true;
             this.tbName.Size = new System.Drawing.Size(164, 23);
-            this.tbName.TabIndex = 1;
+            this.tbName.TabIndex = 2;
             // 
             // label3
             // 
@@ -165,9 +163,11 @@ namespace QuanPCChuot.UI.Controls
             // 
             this.tbID.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbID.Enabled = false;
+            this.tbID.BackColor = System.Drawing.SystemColors.Window;
+            this.tbID.HideSelection = false;
             this.tbID.Location = new System.Drawing.Point(101, 31);
             this.tbID.Name = "tbID";
+            this.tbID.ReadOnly = true;
             this.tbID.Size = new System.Drawing.Size(164, 23);
             this.tbID.TabIndex = 1;
             // 
@@ -192,27 +192,35 @@ namespace QuanPCChuot.UI.Controls
             // 
             // dgvInventory
             // 
+            this.dgvInventory.AllowUserToAddRows = false;
+            this.dgvInventory.AllowUserToDeleteRows = false;
+            this.dgvInventory.AllowUserToResizeRows = false;
             this.dgvInventory.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvInventory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvInventory.Location = new System.Drawing.Point(13, 33);
+            this.dgvInventory.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgvInventory.Location = new System.Drawing.Point(13, 64);
             this.dgvInventory.Name = "dgvInventory";
-            this.dgvInventory.Size = new System.Drawing.Size(532, 518);
-            this.dgvInventory.TabIndex = 6;
+            this.dgvInventory.ReadOnly = true;
+            this.dgvInventory.RowHeadersVisible = false;
+            this.dgvInventory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvInventory.Size = new System.Drawing.Size(532, 487);
+            this.dgvInventory.TabIndex = 0;
+            this.dgvInventory.SelectionChanged += new System.EventHandler(this.dgvInventory_SelectionChanged);
             // 
             // panel1
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.Controls.Add(this.cbGroup);
+            this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.btnDel);
             this.panel1.Controls.Add(this.btnAdd);
-            this.panel1.Controls.Add(this.btnSave);
-            this.panel1.Controls.Add(this.dtpCreatedDate);
-            this.panel1.Controls.Add(this.label7);
+            this.panel1.Controls.Add(this.btnEdit);
             this.panel1.Controls.Add(this.label9);
+            this.panel1.Controls.Add(this.tbCreatedDate);
             this.panel1.Controls.Add(this.tbUnit);
+            this.panel1.Controls.Add(this.tbGroupName);
             this.panel1.Controls.Add(this.tbWarranty);
             this.panel1.Controls.Add(this.label13);
             this.panel1.Controls.Add(this.label12);
@@ -236,34 +244,53 @@ namespace QuanPCChuot.UI.Controls
             this.panel1.Size = new System.Drawing.Size(290, 518);
             this.panel1.TabIndex = 8;
             // 
-            // cbGroup
+            // tbCreatedDate
             // 
-            this.cbGroup.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbGroup.FormattingEnabled = true;
-            this.cbGroup.Location = new System.Drawing.Point(101, 263);
-            this.cbGroup.Name = "cbGroup";
-            this.cbGroup.Size = new System.Drawing.Size(164, 23);
-            this.cbGroup.TabIndex = 5;
+            this.tbCreatedDate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbCreatedDate.BackColor = System.Drawing.SystemColors.Window;
+            this.tbCreatedDate.HideSelection = false;
+            this.tbCreatedDate.Location = new System.Drawing.Point(100, 321);
+            this.tbCreatedDate.Name = "tbCreatedDate";
+            this.tbCreatedDate.ReadOnly = true;
+            this.tbCreatedDate.Size = new System.Drawing.Size(164, 23);
+            this.tbCreatedDate.TabIndex = 11;
             // 
             // tbUnit
             // 
             this.tbUnit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbUnit.BackColor = System.Drawing.SystemColors.Window;
+            this.tbUnit.HideSelection = false;
             this.tbUnit.Location = new System.Drawing.Point(101, 292);
-            this.tbUnit.MaxLength = 32;
             this.tbUnit.Name = "tbUnit";
+            this.tbUnit.ReadOnly = true;
             this.tbUnit.Size = new System.Drawing.Size(164, 23);
-            this.tbUnit.TabIndex = 1;
+            this.tbUnit.TabIndex = 10;
+            // 
+            // tbGroupName
+            // 
+            this.tbGroupName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbGroupName.BackColor = System.Drawing.SystemColors.Window;
+            this.tbGroupName.HideSelection = false;
+            this.tbGroupName.Location = new System.Drawing.Point(101, 263);
+            this.tbGroupName.Name = "tbGroupName";
+            this.tbGroupName.ReadOnly = true;
+            this.tbGroupName.Size = new System.Drawing.Size(164, 23);
+            this.tbGroupName.TabIndex = 9;
             // 
             // tbWarranty
             // 
             this.tbWarranty.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbWarranty.BackColor = System.Drawing.SystemColors.Window;
+            this.tbWarranty.HideSelection = false;
             this.tbWarranty.Location = new System.Drawing.Point(101, 234);
-            this.tbWarranty.MaxLength = 32;
             this.tbWarranty.Name = "tbWarranty";
+            this.tbWarranty.ReadOnly = true;
             this.tbWarranty.Size = new System.Drawing.Size(164, 23);
-            this.tbWarranty.TabIndex = 1;
+            this.tbWarranty.TabIndex = 8;
             // 
             // label13
             // 
@@ -296,11 +323,13 @@ namespace QuanPCChuot.UI.Controls
             // 
             this.tbSellPrice.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbSellPrice.BackColor = System.Drawing.SystemColors.Window;
+            this.tbSellPrice.HideSelection = false;
             this.tbSellPrice.Location = new System.Drawing.Point(101, 205);
-            this.tbSellPrice.MaxLength = 32;
             this.tbSellPrice.Name = "tbSellPrice";
+            this.tbSellPrice.ReadOnly = true;
             this.tbSellPrice.Size = new System.Drawing.Size(164, 23);
-            this.tbSellPrice.TabIndex = 1;
+            this.tbSellPrice.TabIndex = 7;
             // 
             // label10
             // 
@@ -315,11 +344,13 @@ namespace QuanPCChuot.UI.Controls
             // 
             this.tbCostPrice.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbCostPrice.BackColor = System.Drawing.SystemColors.Window;
+            this.tbCostPrice.HideSelection = false;
             this.tbCostPrice.Location = new System.Drawing.Point(101, 176);
-            this.tbCostPrice.MaxLength = 32;
             this.tbCostPrice.Name = "tbCostPrice";
+            this.tbCostPrice.ReadOnly = true;
             this.tbCostPrice.Size = new System.Drawing.Size(164, 23);
-            this.tbCostPrice.TabIndex = 1;
+            this.tbCostPrice.TabIndex = 6;
             // 
             // label8
             // 
@@ -334,11 +365,13 @@ namespace QuanPCChuot.UI.Controls
             // 
             this.tbDescription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbDescription.BackColor = System.Drawing.SystemColors.Window;
+            this.tbDescription.HideSelection = false;
             this.tbDescription.Location = new System.Drawing.Point(101, 147);
-            this.tbDescription.MaxLength = 32;
             this.tbDescription.Name = "tbDescription";
+            this.tbDescription.ReadOnly = true;
             this.tbDescription.Size = new System.Drawing.Size(164, 23);
-            this.tbDescription.TabIndex = 1;
+            this.tbDescription.TabIndex = 5;
             // 
             // label6
             // 
@@ -353,11 +386,13 @@ namespace QuanPCChuot.UI.Controls
             // 
             this.tbCount.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbCount.BackColor = System.Drawing.SystemColors.Window;
+            this.tbCount.HideSelection = false;
             this.tbCount.Location = new System.Drawing.Point(101, 118);
-            this.tbCount.MaxLength = 32;
             this.tbCount.Name = "tbCount";
+            this.tbCount.ReadOnly = true;
             this.tbCount.Size = new System.Drawing.Size(164, 23);
-            this.tbCount.TabIndex = 1;
+            this.tbCount.TabIndex = 4;
             // 
             // label5
             // 
@@ -368,10 +403,43 @@ namespace QuanPCChuot.UI.Controls
             this.label5.TabIndex = 0;
             this.label5.Text = "Count";
             // 
+            // btnSearch
+            // 
+            this.btnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSearch.Location = new System.Drawing.Point(458, 33);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(87, 23);
+            this.btnSearch.TabIndex = 11;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // tbSearch
+            // 
+            this.tbSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbSearch.Location = new System.Drawing.Point(109, 33);
+            this.tbSearch.Name = "tbSearch";
+            this.tbSearch.Size = new System.Drawing.Size(343, 23);
+            this.tbSearch.TabIndex = 10;
+            this.tbSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbSearch_KeyDown);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(10, 37);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(93, 15);
+            this.label14.TabIndex = 9;
+            this.label14.Text = "Search by Name";
+            // 
             // InventoryManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnSearch);
+            this.Controls.Add(this.tbSearch);
+            this.Controls.Add(this.label14);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvInventory);
             this.Controls.Add(this.panel1);
@@ -390,8 +458,7 @@ namespace QuanPCChuot.UI.Controls
 
         private System.Windows.Forms.Button btnDel;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.DateTimePicker dtpCreatedDate;
+        private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox tbManufacturer;
@@ -411,11 +478,15 @@ namespace QuanPCChuot.UI.Controls
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox tbDescription;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox cbGroup;
         private System.Windows.Forms.TextBox tbWarranty;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox tbUnit;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox tbGroupName;
+        private System.Windows.Forms.TextBox tbCreatedDate;
+        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.TextBox tbSearch;
+        private System.Windows.Forms.Label label14;
     }
 }

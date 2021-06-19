@@ -33,8 +33,6 @@ namespace QuanPCChuot.DTO
 
         public bool IsAdmin { get; set; }
 
-        public string Reason { get; set; }
-
         public DateTime CreatedDate { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
