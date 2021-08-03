@@ -84,6 +84,7 @@ namespace QuanPCChuot.UI.Controls
             this.btnPrint.TabIndex = 18;
             this.btnPrint.Text = "Print this bill";
             this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // panel1
             // 

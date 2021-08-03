@@ -39,17 +39,17 @@ namespace QuanPCChuot.UI
             this.button1 = new System.Windows.Forms.Button();
             this.pContent = new System.Windows.Forms.Panel();
             this.billPanel = new System.Windows.Forms.Panel();
-            this.billMainForm1 = new QuanPCChuot.UI.Controls.BillMainForm();
             this.btnNewBill = new System.Windows.Forms.Button();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.cbIDList = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.pLogin = new System.Windows.Forms.Panel();
+            this.billMainForm1 = new QuanPCChuot.UI.Controls.BillMainForm();
             this.logManager = new QuanPCChuot.UI.Controls.LogManager();
             this.inventoryManager = new QuanPCChuot.UI.Controls.InventoryManager();
             this.groupManager = new QuanPCChuot.UI.Controls.GroupManager();
             this.billManager = new QuanPCChuot.UI.Controls.BillManager();
             this.accountManager = new QuanPCChuot.UI.Controls.AccountManager();
-            this.pLogin = new System.Windows.Forms.Panel();
             this.login1 = new QuanPCChuot.UI.Controls.Login();
             this.pTab.SuspendLayout();
             this.pContent.SuspendLayout();
@@ -221,17 +221,6 @@ namespace QuanPCChuot.UI
             this.billPanel.Size = new System.Drawing.Size(910, 681);
             this.billPanel.TabIndex = 5;
             // 
-            // billMainForm1
-            // 
-            this.billMainForm1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.billMainForm1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.billMainForm1.Location = new System.Drawing.Point(0, 45);
-            this.billMainForm1.Name = "billMainForm1";
-            this.billMainForm1.Size = new System.Drawing.Size(910, 636);
-            this.billMainForm1.TabIndex = 3;
-            // 
             // btnNewBill
             // 
             this.btnNewBill.Location = new System.Drawing.Point(490, 11);
@@ -272,6 +261,28 @@ namespace QuanPCChuot.UI
             this.label1.Size = new System.Drawing.Size(50, 21);
             this.label1.TabIndex = 0;
             this.label1.Text = "Bill ID";
+            // 
+            // pLogin
+            // 
+            this.pLogin.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pLogin.Controls.Add(this.login1);
+            this.pLogin.Location = new System.Drawing.Point(0, 0);
+            this.pLogin.Name = "pLogin";
+            this.pLogin.Size = new System.Drawing.Size(1184, 681);
+            this.pLogin.TabIndex = 1;
+            // 
+            // billMainForm1
+            // 
+            this.billMainForm1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.billMainForm1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.billMainForm1.Location = new System.Drawing.Point(0, 45);
+            this.billMainForm1.Name = "billMainForm1";
+            this.billMainForm1.Size = new System.Drawing.Size(910, 636);
+            this.billMainForm1.TabIndex = 3;
             // 
             // logManager
             // 
@@ -317,17 +328,6 @@ namespace QuanPCChuot.UI
             this.accountManager.Name = "accountManager";
             this.accountManager.Size = new System.Drawing.Size(910, 681);
             this.accountManager.TabIndex = 0;
-            // 
-            // pLogin
-            // 
-            this.pLogin.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pLogin.Controls.Add(this.login1);
-            this.pLogin.Location = new System.Drawing.Point(0, 0);
-            this.pLogin.Name = "pLogin";
-            this.pLogin.Size = new System.Drawing.Size(1184, 681);
-            this.pLogin.TabIndex = 1;
             // 
             // login1
             // 

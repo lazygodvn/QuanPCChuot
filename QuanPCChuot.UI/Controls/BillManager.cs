@@ -86,5 +86,24 @@ namespace QuanPCChuot.UI.Controls
         {
             dgvBill.DataSource = BUS.BillManager.GetBillsFromDate(dtpDateFrom.Value, dtpDateTo.Value);
         }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            var bill = BUS.BillManager.GetBillByID(Convert.ToInt64(dgvBill.SelectedRows[0].Cells[0].Value));
+            if (bill.Purchased == 2)
+            {
+                var form = new QuanPCChuot.UI.Controls.PrintPreview(bill);
+                form.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show(
+                    "Sorry, this function is available only when this bill is mark as purchased.",
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                    );
+            }
+        }
     }
 }

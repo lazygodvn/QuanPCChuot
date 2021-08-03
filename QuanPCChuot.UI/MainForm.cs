@@ -131,9 +131,18 @@ namespace QuanPCChuot.UI
 
         private void button8_Click(object sender, EventArgs e)
         {
-            BUS.Account.Logout();
-            pLogin.BringToFront();
-            button8.Text = "Logout";
+            DialogResult dg = MessageBox.Show(
+                String.Format("Are you sure you want to logout?\nYou have logged in as {0}", BUS.Account.LoggedInAccount.Username),
+                this.Text,
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+            if (dg == DialogResult.Yes)
+            {
+                billMainForm1.Clear();
+                BUS.Account.Logout();
+                button8.Text = "Logout";
+                pLogin.BringToFront();
+            }
         }
 
         private void btnNewBill_Click(object sender, EventArgs e)
@@ -142,5 +151,6 @@ namespace QuanPCChuot.UI
             button3_Click(btnRefresh, new EventArgs());
             billMainForm1.LoadBill(id);
         }
+
     }
 }

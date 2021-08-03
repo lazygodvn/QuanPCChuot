@@ -36,6 +36,10 @@ namespace QuanPCChuot.UI.Controls
             LoadBillCart(ID);
 
             billLoaded = true;
+
+            btnPurchased.Enabled = true;
+            btnPurchaseCancel.Enabled = true;
+            btnSaveInformation.Enabled = true;
         }
 
         private void LoadItem(int index = -1)
@@ -156,6 +160,21 @@ namespace QuanPCChuot.UI.Controls
             }
         }
         #endregion
+
+        public void Clear()
+        {
+            tbID.Clear();
+            tbTotalAmount.Clear();
+            tbFinalPrice.Clear();
+            tbDiscountValue.Clear();
+            tbCusTel.Clear();
+            tbCusName.Clear();
+            tbCusAddress.Clear();
+            tbCount.Clear();
+            textBox1.Clear();
+            textBox2.Clear();
+            cbInventoryItem.Items.Clear();
+        }
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
@@ -318,6 +337,10 @@ namespace QuanPCChuot.UI.Controls
             {
                 BUS.BillManager.MarkThisBillByID(this.id, false);
                 LoadBill(this.id);
+
+                btnPurchased.Enabled = false;
+                btnPurchaseCancel.Enabled = false;
+                btnSaveInformation.Enabled = false;
             }
         }
 
@@ -338,7 +361,24 @@ namespace QuanPCChuot.UI.Controls
             if (dg == DialogResult.Yes)
             {
                 BUS.BillManager.MarkThisBillByID(this.id, true);
+                btnPurchased.Enabled = false;
+                btnPurchaseCancel.Enabled = false;
+                btnSaveInformation.Enabled = false;
+
                 LoadBill(this.id);
+
+                DialogResult dg2 = MessageBox.Show(
+                    "Successfully marked this bill as purchased.\nDo you want to print this bill now?",
+                    "Print this bill?",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question
+                    );
+
+                if (dg2 == DialogResult.Yes)
+                {
+                    var form = new QuanPCChuot.UI.Controls.PrintPreview(BUS.BillManager.GetBillByID(Convert.ToInt64(this.id)));
+                    form.ShowDialog();
+                }
             }
         }
 
