@@ -1,13 +1,8 @@
 ﻿using QuanPCChuot.DAL;
-using QuanPCChuot.DTO;
-using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace QuanPCChuot.BUS
 {
@@ -37,7 +32,7 @@ namespace QuanPCChuot.BUS
                     }
                     else if (acc.Password != MD5Hash(password))
                     {
-                        BUS.LogManager.AddLog(LoggedInAccount.ID, "Login failed: Incorrect password");
+                        // BUS.LogManager.AddLog(LoggedInAccount.ID, "Login failed: Incorrect password");
                         return LoginState.IncorrentPassword;
                     }
                     else

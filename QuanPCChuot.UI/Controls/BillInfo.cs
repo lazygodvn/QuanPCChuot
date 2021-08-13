@@ -13,11 +13,14 @@ namespace QuanPCChuot.UI.Controls
 {
     public partial class BillInfo : Form
     {
+        DTO.Bill bill = null;
+
         public BillInfo(DTO.Bill bill)
         {
             InitializeComponent();
+            this.bill = bill;
 
-            LoadData(bill);
+            LoadData(this.bill);
         }
 
         private void LoadData(Bill bill)
@@ -84,6 +87,24 @@ namespace QuanPCChuot.UI.Controls
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
+        }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            if (bill.Purchased == 2)
+            {
+                var form = new QuanPCChuot.UI.Controls.PrintPreview(this.bill);
+                form.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show(
+                    "Sorry, this function is available only when this bill is mark as purchased.",
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                    );
+            }
         }
     }
 }
