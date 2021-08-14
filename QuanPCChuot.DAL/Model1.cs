@@ -8,7 +8,7 @@ namespace QuanPCChuot.DAL
     public partial class Model1 : DbContext
     {
         public Model1()
-            : base(@"data source=(LocalDB)\MSSQLLocalDB;initial catalog=QuanPCChuot;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework")
+            : base(@"data source=LAPTOP-4D490PQ9\SQLEXPRESS;initial catalog=QuanPCChuot;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework")
         {
         }
 
